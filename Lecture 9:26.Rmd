@@ -1,0 +1,20 @@
+---
+title: "Enrollment"
+author: "Keeley MacAfee"
+date: "9/26/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gov.1005.data)
+```
+
+```{r}
+x <- read_rds("enrollment.rds") %>%
+  select(course_name, u_grad)
+
+x
+```
+
