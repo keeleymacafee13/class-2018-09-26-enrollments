@@ -17,9 +17,10 @@ library(knitr)
 x <- read_rds("enrollment.rds") %>%
   filter(! is.na(course_name)) %>%
   select(course_title, course_name, course_department, u_grad) %>% 
-  arrange(desc(u_grad))
+  arrange(desc(u_grad)) %>%
+  slice(1:10)
 
-x %>% kable()
+x %>% kable(caption = "Enrollments")
 ```
 
 
