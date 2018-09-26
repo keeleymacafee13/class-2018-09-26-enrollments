@@ -9,12 +9,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(gov.1005.data)
+library(dplyr)
+library(knitr)
 ```
 
-```{r}
+```{r, echo=FALSE}
 x <- read_rds("enrollment.rds") %>%
-  select(course_name, u_grad)
+  filter(! is.na(course_name)) %>%
+  select(course_title, course_name, course_department, u_grad) %>% 
+  arrange(desc(u_grad))
 
-x
+x %>% kable()
 ```
+
 
